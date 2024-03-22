@@ -9,28 +9,44 @@ function randomNumber(num) {
     return Math.floor(Math.random() * num);
 };
 
+const randomJoke = () => {
 let yourJoke = []; 
-
 //iterate over the Jokes object 
-for(let prop in jokes){
-    let optionIdx = randomNumber(jokes[prop].length); 
+    let optionIdx = randomNumber(jokes.punchline.length); 
     console.log(optionIdx);
+
+    if(optionIdx === 0){
+        yourJoke.push(`${jokes.joke[0]} ... ${jokes.punchline[0]}`); 
+    } 
+    if(optionIdx === 1){
+        yourJoke.push(`${jokes.joke[1]} ... ${jokes.punchline[1]}`); 
+    } else if (optionIdx === 2){
+        yourJoke.push(`${jokes.joke[2]} ... ${jokes.punchline[2]}`);
+    }
     // use the objects properties to add the joke to the yourJoke array.
-    switch(prop) {
-        case 'joke':
+    /*switch(prop) {
+        case 0: 
             yourJoke.push(`${jokes.joke[optionIdx]}`);
+            yourJoke.push(`... ${jokes.punchline[optionIdx]}`);
             break
-        case 'punchline': 
-            yourJoke.push(`... ${jokes.punchline[optionIdx]}`); 
+        case 1: 
+            yourJoke.push(`${jokes.joke[optionIdx]}`);
+            yourJoke.push(`... ${jokes.punchline[optionIdx]}`);
             break
+        case 2: 
+            yourJoke.push(`${jokes.joke[optionIdx]}`);
+            yourJoke.push(`... ${jokes.punchline[optionIdx]}`);
         default: 
             yourJoke.push('I dont feel like it.'); 
-    }
-}; 
+    }*/ 
+    console.log(yourJoke);
+    return yourJoke; 
+};
 
-function formatMessage() { 
-    formatted = yourJoke.join('\n'); 
+randomJoke();
+/*const formatMessage = () => { 
+    formatted = .join('\n'); 
     console.log(formatted); 
 }
 
-formatMessage(yourJoke); 
+formatMessage(randomJoke()); */
